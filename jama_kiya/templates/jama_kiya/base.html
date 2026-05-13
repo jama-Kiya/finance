@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>{% block title %}My Site{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{% static 'jama_kiya/css/index.css' %}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Proza+Libre&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<nav>
+    <h1 style="color:#ffbd15">{% if user.is_authenticated %} {{user.first_name|default:user.username}}
+        {% else %} Jama Kiya {% endif %}
+    </h1>
+
+    <ul>
+        <li><a href="{% url 'home' %}">Home</a></li>
+
+        {% if user.is_authenticated %}
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+        {% else %}
+            <li><a href="{% url 'login' %}">Login</a></li>
+            <li><a href="{% url 'register' %}">Register</a></li>
+        {% endif %}
+    </ul>
+</nav>
+
+<main>
+    {% block content %}
+    {% endblock %}
+    {% if messages %}
+    {% for message in messages %}
+        <p style="color:red;">{{ message }}</p>
+    {% endfor %}
+{% endif %}
+</main>
+
+<footer>
+    <p>© raaz 2026</p>
+</footer>
+
+</body>
+</html>

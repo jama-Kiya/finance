@@ -1,0 +1,132 @@
+{% extends 'jama_kiya/base.html' %}
+
+{% block content %}
+
+<div class="customer-profile-card">
+
+    <!-- ===== TOP INFO ===== -->
+
+    <div class="customer-top">
+
+        <div>
+            <h2 class="dashboard-title">{{ customer.name }}</h2>
+
+            <div class="customer-info-grid">
+                <div class="info-box">
+                    <span>📞 Phone</span>
+                    <p>{{ customer.phone }}</p>
+                </div>
+
+                <div class="info-box">
+                    <span>📍 Address</span>
+                    <p>{{ customer.address }}</p>
+                </div>
+
+                <div class="info-box">
+                    <span>💰 Daily</span>
+                    <p>₹{{ customer.daily_amount }}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== STATUS ===== -->
+
+        <div class="customer-status-box">
+
+            {% if balance > 0 %}
+                <span class="status advance">
+                    Advance ₹{{ balance }}
+                </span>
+
+            {% elif balance == 0 %}
+
+                <span class="status paid">
+                    Paid
+                </span>
+
+            {% else %}
+
+                <span class="status due">
+                    Due ₹{{ due }}
+                </span>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+
+    <!-- ===== ADD PAYMENT ===== -->
+
+    <div class="payment-form-section">
+
+        <h3>Add Payment</h3>
+
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <button type="submit">
+                Add Payment
+            </button>
+        </form>
+
+    </div>
+
+
+    <!-- ===== HISTORY ===== -->
+
+    <div class="history-section">
+
+        <h3>Payment History</h3>
+
+        <div class="history-list">
+
+            {% for p in payments %}
+
+            <div class="history-card">
+
+                <div class="history-item">
+                    <span>Amount</span>
+                    <p>₹{{ p.amount }}</p>
+                </div>
+
+                <div class="history-item">
+                    <span>Date</span>
+                    <p>{{ p.date }}</p>
+                </div>
+
+                <div class="history-item">
+                    <span>Received By</span>
+                    <p>{{ p.received_by }}</p>
+                </div>
+
+                <div class="history-item">
+                    <span>Note</span>
+
+                    <p>
+                        {% if p.note %}
+                            {{ p.note|slice:":8" }}...
+                        {% else %}
+                            --
+                        {% endif %}
+                    </p>
+
+                </div>
+
+            </div>
+
+            {% empty %}
+
+                <p>No payment history available.</p>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

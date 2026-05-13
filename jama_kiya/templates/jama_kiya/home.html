@@ -1,0 +1,29 @@
+{% extends 'jama_kiya/base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<h2 class="dashboard-title">Customers Dashboard</h2>
+
+<a href="{% url 'add_customer' %}" class="add-customer-btn">➕ Add Customer</a>
+
+<ul class="customer-list">
+{% for item in customer_data %}
+    <li>
+        <a href="{% url 'customer_detail' item.customer.id %}">
+            {{ item.customer.name }}
+        </a>
+
+        {% if item.balance > 0 %}
+            <span style="color:green;">Advance ₹{{ item.balance }}</span>
+        {% elif item.balance == 0 %}
+            <span style="color:green;">Paid</span>
+        {% else %}
+            <span style="color:red;">Due ₹{{ item.due }}</span>
+        {% endif %}
+    </li>
+{% endfor %}
+</ul>
+
+{% endblock %}
