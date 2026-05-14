@@ -1,0 +1,471 @@
+/* ===== RESET ===== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+/* ===== BODY ===== */
+
+body{
+    font-family: 'Proza Libre', sans-serif;
+    background:#0f172a;
+    color:white;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+}
+
+
+/* ===== NAVBAR ===== */
+
+nav{
+    width:100%;
+    padding:18px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#111827;
+    border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+nav h1{
+    font-size:2rem;
+    font-family: 'Cormorant Garamond', serif;
+    letter-spacing:1px;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:25px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    font-size:1rem;
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    color:#ffbd15;
+}
+
+
+/* ===== MAIN ===== */
+
+main{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:30px 15px;
+}
+
+
+/* ===== FORM CARD ===== */
+
+form{
+    width:100%;
+    max-width:450px;
+    background:#1e293b;
+    padding:35px 30px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
+
+
+h2{
+    margin-bottom:25px;
+    font-size:2rem;
+    color:#ffbd15;
+    text-align:center;
+}
+
+
+/* ===== FORM FIELDS ===== */
+
+form p{
+    margin-bottom:18px;
+    display:flex;
+    flex-direction:column;
+}
+
+label{
+    margin-bottom:7px;
+    font-size:0.95rem;
+    color:#d1d5db;
+}
+
+input{
+    width:100%;
+    padding:12px 14px;
+    border:none;
+    outline:none;
+    border-radius:10px;
+    background:#334155;
+    color:white;
+    font-size:1rem;
+}
+
+input:focus{
+    border:2px solid #ffbd15;
+}
+
+
+/* ===== PASSWORD HELP TEXT ===== */
+
+.helptext{
+    font-size:0.8rem;
+    margin-top:8px;
+    color:#cbd5e1;
+}
+
+.helptext ul{
+    padding-left:18px;
+    margin-top:5px;
+}
+
+
+/* ===== BUTTON ===== */
+
+button{
+    width:100%;
+    padding:13px;
+    border:none;
+    border-radius:12px;
+    background:#ffbd15;
+    color:black;
+    font-size:1rem;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+    margin-top:10px;
+}
+
+button:hover{
+    background:#ffd54a;
+    transform:translateY(-2px);
+}
+
+
+/* ===== FOOTER ===== */
+
+footer{
+    text-align:center;
+    padding:15px;
+    background:#111827;
+    border-top:1px solid rgba(255,255,255,0.1);
+}
+
+footer p{
+    font-size:0.9rem;
+    color:#cbd5e1;
+}
+
+
+/* ===== MOBILE RESPONSIVE ===== */
+
+@media(max-width:600px){
+
+    nav{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    nav ul{
+        gap:15px;
+    }
+
+    form{
+        padding:25px 20px;
+    }
+
+    h2{
+        font-size:1.7rem;
+    }
+}
+/* ===== DASHBOARD SECTION ===== */
+
+.dashboard-title{
+    text-align:center;
+    font-size:2rem;
+    color:#ffbd15;
+    margin-bottom:25px;
+}
+
+
+/* ===== ADD CUSTOMER BUTTON ===== */
+
+.add-customer-btn{
+    display:inline-block;
+    margin-bottom:25px;
+    padding:12px 18px;
+    background:#ffbd15;
+    color:black;
+    text-decoration:none;
+    border-radius:12px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.add-customer-btn:hover{
+    transform:translateY(-2px);
+    background:#ffd54a;
+}
+
+
+/* ===== CUSTOMER LIST ===== */
+
+.customer-list{
+    width:100%;
+    max-width:900px;
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    padding:0;
+    list-style:none;
+}
+
+
+/* ===== CUSTOMER CARD ===== */
+
+.customer-list li{
+    width:100%;
+    background:#1e293b;
+    border-radius:18px;
+    padding:18px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    transition:0.3s;
+    border:1px solid rgba(255,255,255,0.06);
+}
+
+.customer-list li:hover{
+    transform:translateY(-3px);
+    background:#263548;
+    box-shadow:0 10px 20px rgba(0,0,0,0.25);
+}
+
+
+/* ===== CUSTOMER NAME ===== */
+
+.customer-list li a{
+    text-decoration:none;
+    color:white;
+    font-size:1.1rem;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.customer-list li a:hover{
+    color:#ffbd15;
+}
+
+
+/* ===== STATUS BADGES ===== */
+
+.status{
+    padding:8px 15px;
+    border-radius:50px;
+    font-size:0.92rem;
+    font-weight:bold;
+    letter-spacing:0.3px;
+}
+
+
+/* ===== ADVANCE ===== */
+
+.advance{
+    background:rgba(34,197,94,0.15);
+    color:#4ade80;
+    border:1px solid rgba(74,222,128,0.4);
+}
+
+
+/* ===== DUE ===== */
+
+.due{
+    background:rgba(239,68,68,0.15);
+    color:#f87171;
+    border:1px solid rgba(248,113,113,0.4);
+}
+
+
+/* ===== PAID ===== */
+
+.paid{
+    background:rgba(59,130,246,0.15);
+    color:#60a5fa;
+    border:1px solid rgba(96,165,250,0.4);
+}
+
+
+/* ===== MOBILE ===== */
+
+@media(max-width:650px){
+
+    .customer-list li{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:12px;
+    }
+
+    .status{
+        width:100%;
+        text-align:center;
+    }
+
+    .add-customer-btn{
+        width:100%;
+        text-align:center;
+    }
+}
+
+/* ===== CUSTOMER PROFILE ===== */
+
+.customer-profile-card{
+    width:100%;
+    max-width:1000px;
+    margin:auto;
+    display:flex;
+    flex-direction:column;
+    gap:25px;
+}
+
+
+/* ===== TOP SECTION ===== */
+
+.customer-top{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    flex-wrap:wrap;
+    background:#1e293b;
+    padding:25px;
+    border-radius:20px;
+}
+
+
+/* ===== INFO GRID ===== */
+
+.customer-info-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(180px,1fr));
+    gap:15px;
+    margin-top:20px;
+}
+
+.info-box{
+    background:#334155;
+    padding:15px;
+    border-radius:14px;
+}
+
+.info-box span{
+    font-size:0.85rem;
+    color:#cbd5e1;
+}
+
+.info-box p{
+    margin-top:6px;
+    font-size:1rem;
+    font-weight:600;
+}
+
+
+/* ===== STATUS BOX ===== */
+
+.customer-status-box{
+    display:flex;
+    align-items:flex-start;
+    justify-content:center;
+}
+
+
+/* ===== FORM SECTION ===== */
+
+.payment-form-section{
+    background:#1e293b;
+    padding:25px;
+    border-radius:20px;
+}
+
+.payment-form-section h3{
+    margin-bottom:20px;
+    color:#ffbd15;
+}
+
+
+/* ===== HISTORY ===== */
+
+.history-section{
+    background:#1e293b;
+    padding:25px;
+    border-radius:20px;
+}
+
+.history-section h3{
+    margin-bottom:20px;
+    color:#ffbd15;
+}
+
+
+/* ===== HISTORY LIST ===== */
+
+.history-list{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+
+/* ===== HISTORY CARD ===== */
+
+.history-card{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(140px,1fr));
+    gap:15px;
+    background:#334155;
+    padding:18px;
+    border-radius:16px;
+    transition:0.3s;
+}
+
+.history-card:hover{
+    transform:translateY(-2px);
+    background:#3b4d63;
+}
+
+
+/* ===== HISTORY ITEM ===== */
+
+.history-item span{
+    font-size:0.8rem;
+    color:#cbd5e1;
+}
+
+.history-item p{
+    margin-top:6px;
+    font-weight:600;
+    word-break:break-word;
+}
+
+
+/* ===== MOBILE ===== */
+
+@media(max-width:700px){
+
+    .customer-top{
+        flex-direction:column;
+    }
+
+    .history-card{
+        grid-template-columns:1fr 1fr;
+    }
+}
