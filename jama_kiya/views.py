@@ -57,7 +57,7 @@ def home(request):
         if c.start_date > date.today():
             total_days = 0
         else:
-            total_days = (date.today() - c.start_date).days + 1
+            total_days = (date.today() - c.start_date).days
 
         total_required = total_days * c.daily_amount
         balance = total_paid - total_required
